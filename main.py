@@ -40,6 +40,8 @@ from Derivada import derivada_simples_polinomios
 # matriz =  Mult_Matrizes(Matriz1, Matriz2)
 # for linha in matriz:
 #     print(linha)
+
+ #=========DERIVADA===========
 print("=="*40)
 print("Calculo de derivadas o coeficiente mais a esquerda é o maior grau\n")
 print(f"{derivada_simples_polinomios([2,2,3,0,1,5,2])}\n")
