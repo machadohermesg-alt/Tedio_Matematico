@@ -1,0 +1,67 @@
+.botao-padrao{
+    background-color: rgb(167, 230, 233);
+    margin: 5px;
+    padding: 10px 20px; /* Aumentando o tamanho   */
+    border-radius: 8px; /* Aumentando o tamanho   */
+    width: 380px;/* Comfigurar tamanho*/
+    text-align: center;
+    cursor: pointer;
+    
+}
+.opcao-retangular{
+padding: 20px;
+margin: 20px auto;
+border-radius: 10px;
+border-color: rgb(185, 123, 29);
+border-style: groove;
+width: 500px;
+
+
+
+}
+.barra-padrao{
+        background-color: rgb(167, 230, 233);
+    margin: 5px auto;
+    padding: 10px 20px; /* Aumentando o tamanho   */
+    border-radius: 8px; /* Aumentando o tamanho   */
+    width: 380px;/* Comfigurar tamanho*/
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none; /*tira o sublinhado*/
+    color: inherit; /* tirando o azul */
+    display: block; /* alinhando pois inline por padrao nao respeita margin nem padding*/
+
+
+}
+body{
+    background-image: url("./PapelParedePI.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover; /* preenccher*/
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+header{
+    background-color: rgb(202, 245, 255);
+    box-shadow: 50;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    display: flex; 
+    align-items: center; /* Centraliza o logo verticalmente */
+    justify-content: flex-start; /* Garante que fique na esquerda */
+   
+    
+    
+}
+.nome-site{
+    border-style: groove;
+    border-color: rgb(92, 92, 205);
+    padding: 10px 2px;
+    width: 290px;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    color:  rgb(92, 92, 205);
+}   
