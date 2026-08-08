@@ -4,8 +4,8 @@
     padding: 6px 10px; 
     border-radius: 10px; 
     border-style: groove;
-    box-shadow: 50;
-    text-align: block;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    display: block;
     cursor: pointer;
     
 }
@@ -14,13 +14,20 @@
   grid-template-columns: repeat(5, 1fr);  /* 4 colunas iguais */
   gap: 8px;   
 }
+@media (max-width: 500px) {
+    .caixa-botao{
+        grid-template-columns: repeat(3, 1fr);  /* 3 colunas em vez de 5, caso a tela seja menor igual a 500px */
+    }
+}
 .Caixa-retangular{
-padding: 20px;
-margin: 20px auto;
-border-radius: 10px;
-border-color: rgb(185, 123, 29);
-border-style: groove;
-width: 500px;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    border-color: rgb(185, 123, 29);
+    border-style: groove;
+    width: 90%;         /* ocupa 90% da tela disponível, adapta sozinho */
+    max-width: 500px;   /* mas nunca passa de 500px em telas grandes */
+    box-sizing: border-box;  /* padding não estoura a largura total */
 
 
 
@@ -30,14 +37,19 @@ width: 500px;
     margin: 5px auto;
     padding: 10px 20px; /* Aumentando o tamanho   */
     border-radius: 8px; /* Aumentando o tamanho   */
-    width: 380px;/* Comfigurar tamanho*/
+    
     text-align: center;
     cursor: pointer;
     text-decoration: none; /*tira o sublinhado*/
     color: inherit; /* tirando o azul */
     display: block; /* alinhando pois inline por padrao nao respeita margin nem padding*/
+    width: 90%;
+    max-width: 380px;
+    box-sizing: border-box;
 
-
+}
+main {
+    flex: 1;   /* faz o <main> "esticar" e ocupar todo espaço sobrando */
 }
 body{
     background-image: url("./PapelParedePI.png");
@@ -48,10 +60,18 @@ body{
     padding: 0;
     margin: 0;
     text-align: center;
+     min-height: 100vh;      /* garante que o body ocupa NO MÍNIMO a altura da tela toda */
+    display: flex;
+    flex-direction: column; /* empilha header, main, footer verticalmente */
+}
+.pagina-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 header{
     background-color: rgb(202, 245, 255);
-    box-shadow: 50;
+   
     padding: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     display: flex; 
@@ -60,6 +80,11 @@ header{
    
     
     
+}
+@media (max-width: 500px) {
+    header {
+        justify-content: center;  /*fiando centralizado para telas pequenas*/
+    }
 }
 .nome-site{
     border-style: groove;
@@ -96,8 +121,13 @@ header{
     border-radius: 8px;
     border-color:  rgb(202, 245, 255);
     border-style: groove;
-    box-shadow: 50;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     cursor: pointer;
     padding: 5px;
     margin: 5px ;
+}
+footer{
+    background-color: rgb(202, 245, 255);
+    padding: 20px;
+
 }

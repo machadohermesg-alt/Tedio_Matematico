@@ -5,12 +5,19 @@ import NomeSiteClicavel from '../FuncoesTp/NomeSiteClicavel'
 import Display from '../FuncoesTp/Display'
 import { useState } from 'react'
 import CaixaBotao from '../FuncoesTp/CaixaBotao'
+import usePyodide from '../hooks/usePyodide'
 
 
 function ValorFuncao(){
     // Agora apos recebe setValorF 5+23, o novo valor é adicionado em valorF e envia para display
     const [valorF,setValorF] = useState("")
     const [valorX, setValorX] = useState("")
+    const [Result, setResult] = useState("")
+    const { pyodide, carregando} = usePyodide()
+    //testando o bloqueio do botão calcular
+    //console.log("Pyodide:", pyodide)
+    //console.log("Carregando:", carregando)
+   
     /*definindo a ordem de prioridade e recebe o chamado do display*/
     const [campoAtivo, setCampoAtivo] = useState<"valorF" | "valorX">("valorF")
     /*Seta o novo valor para setValorF ou setValorx para o useState ex (5+2)+3 concatena 5+23*/
@@ -24,8 +31,8 @@ function ValorFuncao(){
         const retiraEspaco= valorAtual.trim()
         const ultimoCaractere = retiraEspaco.slice(-1)
         const penutimoCaractere =retiraEspaco.slice(-2,-1)
-        const caracteresespeciais = ['+','-','*',',',]
-        const caracteresespeciais2 = ['/', '^', ' + ', ' - ', ' * ']
+        const caracteresespeciais = ['+','-','·',',',]
+        const caracteresespeciais2 = ['/', '^', ' + ', ' - ', ' · ']
         for (const elementoAtual of caracteresespeciais){
             for(const elementoCandidato of caracteresespeciais2){
             if (ultimoCaractere === elementoAtual && caractere ===elementoCandidato){
@@ -39,7 +46,7 @@ function ValorFuncao(){
             if(campoAtivo=="valorX" &&caractere ==='x'){
                 return
             }
-            const naoPermitidosComeco = ['/',' * ','^']
+            const naoPermitidosComeco = ['/',' · ','^']
             for(const elementos of naoPermitidosComeco){
                 if (ultimoCaractere == '' &&caractere==elementos){
                     return
@@ -60,7 +67,7 @@ function ValorFuncao(){
             if(numeros.includes(penutimoCaractere)&&ultimoCaractere==='/' &&caractere==='x'){
                 return
             }
-        const  maisCaracteres = [' * ','/','+']
+        const  maisCaracteres = [' · ','/','+']
         if(maisCaracteres.includes(caractere) &&ultimoCaractere =='^'){
             return
         }
@@ -92,8 +99,18 @@ function ValorFuncao(){
     // funcao de teste
     function calcular(){
          
-        traduzirparaCoeficientes(valorF)
+       const coeficientes =traduzirparaCoeficientes(valorF)
+       const x =traduzirX(valorX)
+       //console.log("Coeficientes:", coeficientes, "X:", x)
+       // importando o arquivo
+       const modulo = pyodide.pyimport('valor_funcao')
+
+       //chamando a funcao
+       const valorCalculado = modulo.valor_polinomio(coeficientes,x)
+       //console.log("Resultado do Python:", valorCalculado)
+       setResult(String(valorCalculado).replace('.',','))
     }
+    //Aonde acontece a magica da função, chamando as outras funções auxiliares
     function traduzirparaCoeficientes(expressao:string){
         let termos = []
         let dicDados = []
@@ -133,9 +150,10 @@ function ValorFuncao(){
                 console.log("Erro: expressão inválida")
             }
         }
-       
-        console.log("Termos separados: ", resultado)
+        //console.log("Termos separados: ", resultado)
         return resultado
+       
+        
     }
     //criando dicionario para traduzir para coeficientes
     function dic (termo:string){
@@ -165,8 +183,8 @@ function ValorFuncao(){
     }
     function calculadora (termo:string){
         let numero =0
-        if(termo.includes('*')){
-            let termoSemVezes = termo.split("*")
+        if(termo.includes('·')){
+            let termoSemVezes = termo.split("·")
             numero = Number(termoSemVezes[0])*Number(termoSemVezes[1])
             return(String(numero))
         }else if(termo.includes('^') && !termo.includes('x') ){
@@ -200,8 +218,19 @@ function ValorFuncao(){
         
         return termos
     }
+    //Aonde acontece a magica do valor de X chamando outras funcoes
+     function traduzirX(expressao:string){
+        let termos = separarEmTermos(expressao)
+        let valor = 0
+        for(let termo of termos){
+            const termoCorrigido = termo.replace(',','.')
+            valor = Number(calculadora(termoCorrigido))+valor
+        }
+        //console.log("O valor de x inserido é: ",valor)
+        return valor
+     }
     return( 
-    <div> 
+    <div className="pagina-wrapper"> 
         <header>
             
             <NomeSiteClicavel texto='Tédio Matemático' para='/pagina-inicial'></NomeSiteClicavel>
@@ -217,7 +246,7 @@ function ValorFuncao(){
             <p>Valor de x:</p>
             <Display valor={valorX} aoClicar={()=> setCampoAtivo("valorX")}></Display>
             <CaixaBotao>
-         <BotaoPadrao texto='*' aoClicar={() => adicionarTexto(' * ')}></BotaoPadrao>
+         <BotaoPadrao texto='×' aoClicar={() => adicionarTexto(' · ')}></BotaoPadrao>
             <BotaoPadrao texto='1' aoClicar={() => adicionarTexto('1')}></BotaoPadrao>
             <BotaoPadrao texto='2' aoClicar={() => adicionarTexto('2')}></BotaoPadrao>
             <BotaoPadrao texto='3' aoClicar={() => adicionarTexto('3')}></BotaoPadrao>
@@ -241,15 +270,20 @@ function ValorFuncao(){
             <BotaoPadrao texto='x' aoClicar={() => adicionarTexto('x')}></BotaoPadrao>
          
 
-            <BotaoPadrao texto ='Calcular' aoClicar={calcular} ></BotaoPadrao>
+            <BotaoPadrao texto ='Calcular' aoClicar={calcular} disabled={carregando} ></BotaoPadrao>
             
             </CaixaBotao>
+            <p>Resultado: </p>
+            <Display valor={Result} aoClicar={()=>{}} ></Display>
             </CaixaRetangular>
             
 
             
         </main>
+        <footer>
+             </footer>
     </div>
+    
 )
 }
 export default ValorFuncao

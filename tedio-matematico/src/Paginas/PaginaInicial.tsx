@@ -22,7 +22,7 @@ import CaixaRetangular from '../FuncoesTp/fCaixaRetangular';
         
         return(
             
-            <div>
+            <div className="pagina-wrapper">
                 <header>
                     <div className='nome-site'>
                         <h1>Tédio Matemático</h1>
@@ -31,8 +31,7 @@ import CaixaRetangular from '../FuncoesTp/fCaixaRetangular';
                 <main>
 
                 
-                    <h2> Com uma ideia simples de produzir resultados de várias
-                        áreas da matemática, aos poucos melhorando meu conhecimento em Python e React/FrontEnd etc
+                    <h2> Ferramentas de matemática feitas do zero: algoritmos em Python, rodando direto no navegador via Pyodide, com interface em React e TypeScript.
                     </h2>
                     <CaixaRetangular>
                     <h3>Cálculo</h3>
@@ -56,6 +55,7 @@ import CaixaRetangular from '../FuncoesTp/fCaixaRetangular';
                     </p>
                     </CaixaRetangular>
                 </main>
+                <footer></footer>
             </div>
            
         )
