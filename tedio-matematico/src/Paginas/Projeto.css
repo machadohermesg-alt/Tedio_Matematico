@@ -1,14 +1,20 @@
 .botao-padrao{
     background-color: rgb(167, 230, 233);
     margin: 5px;
-    padding: 10px 20px; /* Aumentando o tamanho   */
-    border-radius: 8px; /* Aumentando o tamanho   */
-    width: 380px;/* Comfigurar tamanho*/
-    text-align: center;
+    padding: 6px 10px; 
+    border-radius: 10px; 
+    border-style: groove;
+    box-shadow: 50;
+    text-align: block;
     cursor: pointer;
     
 }
-.opcao-retangular{
+.caixa-botao{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);  /* 4 colunas iguais */
+  gap: 8px;   
+}
+.Caixa-retangular{
 padding: 20px;
 margin: 20px auto;
 border-radius: 10px;
@@ -62,6 +68,36 @@ header{
     width: 290px;
     border-radius: 20px;
     text-align: center;
-    cursor: pointer;
-    color:  rgb(92, 92, 205);
+    
+    color: rgb(92, 92, 205)
 }   
+
+.nome-site-clicavel{
+   
+    cursor: pointer;
+    text-decoration: none; /*tira o sublinhado*/
+    color: inherit; /* tirando o azul */
+    display: block; /* alinhando pois inline por padrao nao respeita margin nem padding*/
+     border-style: groove;
+    border-color: rgb(92, 92, 205);
+    padding: 10px 2px;
+    width: 290px;
+    border-radius: 20px;
+    text-align: center;
+    
+    color: rgb(92, 92, 205)
+
+}
+.placeholder{
+    opacity: 0.5;
+    color: rgb(0, 0, 0);
+}
+.display{
+    border-radius: 8px;
+    border-color:  rgb(202, 245, 255);
+    border-style: groove;
+    box-shadow: 50;
+    cursor: pointer;
+    padding: 5px;
+    margin: 5px ;
+}

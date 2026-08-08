@@ -1,5 +1,6 @@
 import './Projeto.css';
 import { Link } from 'react-router-dom'
+import CaixaRetangular from '../FuncoesTp/fCaixaRetangular';
    /* function BotaoPadrao ({texto}:{texto: string}){
         return(
             <button  
@@ -14,11 +15,7 @@ import { Link } from 'react-router-dom'
                 {texto}</Link>
         )
     }
-    function Opcao ({children}:{children: React.ReactNode}){
-        return(
-        <div className='opcao-retangular'>{children}</div>
-        )
-    }
+    
     function PaginaInicial (){
         
             
@@ -37,27 +34,27 @@ import { Link } from 'react-router-dom'
                     <h2> Com uma ideia simples de produzir resultados de várias
                         áreas da matemática, aos poucos melhorando meu conhecimento em Python e React/FrontEnd etc
                     </h2>
-                    <Opcao>
+                    <CaixaRetangular>
                     <h3>Cálculo</h3>
                     <p>
                     Escolha uma operação:
                     </p>
-                    <BarraPadrao texto='Calcular valor da função Polinomial' para='valor-funcao'></BarraPadrao>
-                    <BarraPadrao texto='Calcular a derivada da função Polinomial'para='valor-funcao'></BarraPadrao>
-                    <BarraPadrao texto='Calcular a reta tangente da função Polinomial no ponto' para='valor-funcao'></BarraPadrao>
-                    </Opcao>
-                    <Opcao> 
+                    <BarraPadrao texto='Calcular valor da função Polinomial' para='/valor-funcao'></BarraPadrao>
+                    <BarraPadrao texto='Calcular a derivada da função Polinomial'para='/valor-funcao'></BarraPadrao>
+                    <BarraPadrao texto='Calcular a reta tangente da função Polinomial no ponto' para='/valor-funcao'></BarraPadrao>
+                    </CaixaRetangular>
+                    <CaixaRetangular> 
                     <h3>Álgebra</h3>
                     <p>
                     Escolha uma operação:
                     </p>
-                    </Opcao>
-                    <Opcao> 
+                    </CaixaRetangular>
+                    <CaixaRetangular> 
                     <h3>Grafos</h3>
                     <p>
                     Escolha uma operação:
                     </p>
-                    </Opcao>
+                    </CaixaRetangular>
                 </main>
             </div>
            

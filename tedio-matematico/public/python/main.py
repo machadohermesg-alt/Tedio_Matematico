@@ -58,7 +58,7 @@ from reta_tangente_funcao import reta_tangente_polinomio
 #=====Valor da Função==============
 # print("Calculo da função polinomia no formato (1,2,0,4) = 1 + 2x + 4x^3")
 # funcao = [-6,-1,1]
-# ponto = 0.5
+# ponto = 3
 # valor = valor_polinomio(funcao, ponto)
 # print(f"A função é: {formata_polinomio(funcao)}\n")
 # print(f"E o valor no ponto {ponto} é: {valor}")
