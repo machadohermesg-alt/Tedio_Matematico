@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/funcoestp/botapadrao.tsx","./src/funcoestp/caixabotao.tsx","./src/funcoestp/display.tsx","./src/funcoestp/nomesiteclicavel.tsx","./src/funcoestp/fcaixaretangular.tsx","./src/paginas/paginainicial.tsx","./src/paginas/valorfuncao.tsx","./src/hooks/usepyodide.ts"],"version":"6.0.3"}

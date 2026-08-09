@@ -1,6 +1,9 @@
 import './Projeto.css';
 import { Link } from 'react-router-dom'
 import CaixaRetangular from '../FuncoesTp/fCaixaRetangular';
+import SobreF from '../FuncoesTp/SobreF';
+import EspacoHeader from '../FuncoesTp/EspacoHeader';
+import NomeSiteClicavel from '../FuncoesTp/NomeSiteClicavel';
    /* function BotaoPadrao ({texto}:{texto: string}){
         return(
             <button  
@@ -24,9 +27,12 @@ import CaixaRetangular from '../FuncoesTp/fCaixaRetangular';
             
             <div className="pagina-wrapper">
                 <header>
+                    <EspacoHeader>
                     <div className='nome-site'>
                         <h1>Tédio Matemático</h1>
                     </div>
+                    <NomeSiteClicavel texto='Sobre' para='/sobre'></NomeSiteClicavel>
+                    </EspacoHeader>
                 </header>
                 <main>
 
@@ -39,8 +45,8 @@ import CaixaRetangular from '../FuncoesTp/fCaixaRetangular';
                     Escolha uma operação:
                     </p>
                     <BarraPadrao texto='Calcular valor da função Polinomial' para='/valor-funcao'></BarraPadrao>
-                    <BarraPadrao texto='Calcular a derivada da função Polinomial'para='/valor-funcao'></BarraPadrao>
-                    <BarraPadrao texto='Calcular a reta tangente da função Polinomial no ponto' para='/valor-funcao'></BarraPadrao>
+                    <BarraPadrao texto='Calcular a derivada da função Polinomial'para='/calcular-derivada'></BarraPadrao>
+                    <BarraPadrao texto='Calcular a reta tangente da função Polinomial no ponto' para='/calcular-reta-tangente'></BarraPadrao>
                     </CaixaRetangular>
                     <CaixaRetangular> 
                     <h3>Álgebra</h3>

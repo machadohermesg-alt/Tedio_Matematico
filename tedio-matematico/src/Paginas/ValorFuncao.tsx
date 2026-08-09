@@ -6,6 +6,7 @@ import Display from '../FuncoesTp/Display'
 import { useState } from 'react'
 import CaixaBotao from '../FuncoesTp/CaixaBotao'
 import usePyodide from '../hooks/usePyodide'
+import EspacoHeader from '../FuncoesTp/EspacoHeader'
 
 
 function ValorFuncao(){
@@ -104,10 +105,20 @@ function ValorFuncao(){
        //console.log("Coeficientes:", coeficientes, "X:", x)
        // importando o arquivo
        const modulo = pyodide.pyimport('valor_funcao')
-
+        
        //chamando a funcao
        const valorCalculado = modulo.valor_polinomio(coeficientes,x)
        //console.log("Resultado do Python:", valorCalculado)
+
+        
+        if(isNaN(valorCalculado)){
+            setResult("Erro: expressão inválida")
+            return
+        }
+        if(!isFinite(valorCalculado)){
+            setResult("Erro: divisão por zero")
+            return
+        }
        setResult(String(valorCalculado).replace('.',','))
     }
     //Aonde acontece a magica da função, chamando as outras funções auxiliares
@@ -145,12 +156,7 @@ function ValorFuncao(){
             //somando os graus e colocando na posicao correta
             resultado[dados.grau]= resultado[dados.grau]+dados.coeficiente
         }
-        for(const valor of resultado){
-            if(isNaN(valor)){
-                console.log("Erro: expressão inválida")
-            }
-        }
-        //console.log("Termos separados: ", resultado)
+      
         return resultado
        
         
@@ -232,9 +238,10 @@ function ValorFuncao(){
     return( 
     <div className="pagina-wrapper"> 
         <header>
-            
+           <EspacoHeader>
             <NomeSiteClicavel texto='Tédio Matemático' para='/pagina-inicial'></NomeSiteClicavel>
-            
+            <NomeSiteClicavel texto ='Sobre' para ='/sobre'></NomeSiteClicavel>
+            </EspacoHeader> 
         </header>
         <main>
             <CaixaRetangular>

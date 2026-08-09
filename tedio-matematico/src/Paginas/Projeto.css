@@ -69,6 +69,18 @@ body{
     display: flex;
     flex-direction: column;
 }
+/* deixando alinhado */
+section p{
+    text-align: justify;
+}
+
+
+.espaco-header{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /*quebrando link caso nao couber lado a lado */
+    max-width: 100%;
+}
 header{
     background-color: rgb(202, 245, 255);
    
@@ -83,9 +95,17 @@ header{
 }
 @media (max-width: 500px) {
     header {
-        justify-content: center;  /*fiando centralizado para telas pequenas*/
+        justify-content: center;  /*ficando centralizado para telas pequenas*/
     }
 }
+@media (max-width: 500px) {
+    .espaco-header {
+        justify-content: center;   /* ficando centralizaod para telas pequenas */
+        
+    }
+}
+
+
 .nome-site{
     border-style: groove;
     border-color: rgb(92, 92, 205);

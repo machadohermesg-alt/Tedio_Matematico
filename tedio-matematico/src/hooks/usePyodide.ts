@@ -1,5 +1,7 @@
 //Necessário atualização quando adiocionar paginas
+/// <reference types="vite/client" />
 import { useState, useEffect } from "react"
+
 declare global {
     interface Window {
         loadPyodide: any
@@ -19,15 +21,17 @@ function usePyodide(){
             const instancia = await window.loadPyodide()  
             
             //buscando o conteudo .py como texto
-            const resposta = await fetch('/python/valor_funcao.py')
-            const conteudoArquivo = await resposta.text()
+           // const resposta = await fetch('/python/valor_funcao.py')
+           //Para funciona tanto localmente  e no gitHubPages
+           const resposta = await fetch(import.meta.env.BASE_URL + 'python/valor_funcao.py')
+           const conteudoArquivo = await resposta.text()
 
             //escrevendo o arquivo de texto dentro de arquivos do Pyodide
             instancia.FS.writeFile('valor_funcao.py',conteudoArquivo)
             setPyodide(instancia)
             setCarregando(false)   
             //textando
-            console.log("Arquivo carregado:", conteudoArquivo)
+            //console.log("Arquivo carregado:", conteudoArquivo)
         }
         //chamando a funcao ira carregar
         carregar()
