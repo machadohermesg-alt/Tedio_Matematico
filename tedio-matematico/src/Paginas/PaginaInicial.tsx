@@ -1,7 +1,7 @@
 import './Projeto.css';
 import { Link } from 'react-router-dom'
 import CaixaRetangular from '../FuncoesTp/fCaixaRetangular';
-import SobreF from '../FuncoesTp/SobreF';
+
 import EspacoHeader from '../FuncoesTp/EspacoHeader';
 import NomeSiteClicavel from '../FuncoesTp/NomeSiteClicavel';
    /* function BotaoPadrao ({texto}:{texto: string}){
