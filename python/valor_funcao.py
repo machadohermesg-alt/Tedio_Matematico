@@ -1,9 +1,9 @@
-import math 
+
 def valor_polinomio (funcao,valor):
     resultado = 0
     grau = 0
     for coeficientes in funcao:
-        resultado = resultado + coeficientes*math.pow(valor,grau)
+        resultado = resultado + coeficientes*(valor**grau)
         grau=grau+1
     return resultado
 
