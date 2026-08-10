@@ -27,9 +27,9 @@ e uma consequência foi deixar a página mais lenta. Por isso, o botão resultad
  O cálculo do valor da função polinomial percorre essa lista com um contador de 
   grau, começando em zero: resultado = resultado + coeficiente · valor^grau, onde  valor é o x. 
   Em TypeScript, foi criada uma função que traduz o texto digitado 
-  para esse mesmo formato. Por isso a escolha de usar botões em vez de digitação livre: simplifica bastante o parsing. Ainda existe um bug conhecido, expressões 
-  como 3·x não funcionam corretamente, a forma correta hoje é digitar 3x direto, 
-  que será corrigido em atualizações futuras. Mais detalhes técnicos no README do GitHub.
+  para esse mesmo formato. Por isso a escolha de usar botões em vez de digitação livre: simplifica bastante o parsing. Existem bugs, expressões 
+  como 3·x  e x/2 não funcionam corretamente, a forma correta hoje é digitar 3x direto, 
+  que será corrigido em atualizações futuras. 
 
 ## Stack
 
