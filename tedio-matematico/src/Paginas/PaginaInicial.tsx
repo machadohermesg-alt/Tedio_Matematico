@@ -46,22 +46,30 @@ import NomeSiteClicavel from '../FuncoesTp/NomeSiteClicavel';
                     </p>
                     <BarraPadrao texto='Calcular valor da função Polinomial' para='/valor-funcao'></BarraPadrao>
                     <BarraPadrao texto='Calcular a derivada da função Polinomial'para='/calcular-derivada'></BarraPadrao>
-                    <BarraPadrao texto='Calcular a reta tangente da função Polinomial no ponto' para='/calcular-reta-tangente'></BarraPadrao>
+                    <BarraPadrao texto='Calcular reta tangente da função Polinomial' para='/calcular-reta-tangente'></BarraPadrao>
                     </CaixaRetangular>
                     <CaixaRetangular> 
                     <h3>Álgebra</h3>
                     <p>
-                    Escolha uma operação:
+                     Em construção
                     </p>
                     </CaixaRetangular>
                     <CaixaRetangular> 
                     <h3>Grafos</h3>
                     <p>
-                    Escolha uma operação:
+                     Em construção
                     </p>
                     </CaixaRetangular>
                 </main>
-                <footer></footer>
+                <footer>
+                        
+                        <a href="mailto:machadohermesg@gmail.com">Email</a>
+                        {' · '}
+                        <a href="https://www.linkedin.com/in/hermes-guimar%C3%A3es-machado-7474a7229/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        {' · '}
+                        <a href="https://github.com/machadohermesg-alt" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        
+                </footer>
             </div>
            
         )

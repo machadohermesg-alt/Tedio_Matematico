@@ -55,7 +55,6 @@ da faculdade.*
 
 ## Rodando localmente
 
-\`\`\`bash
+
 npm install
 npm run dev
-\`\`\`

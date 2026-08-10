@@ -149,5 +149,12 @@ header{
 footer{
     background-color: rgb(202, 245, 255);
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 
+}
+footer a {
+    color: rgb(92, 92, 205);  
+    text-decoration: none;      /*Tirando o sublinhado dos links */
 }
