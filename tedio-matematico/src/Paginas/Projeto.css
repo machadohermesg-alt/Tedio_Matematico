@@ -36,7 +36,7 @@
         background-color: rgb(167, 230, 233);
     margin: 5px auto;
     padding: 10px 20px; /* Aumentando o tamanho   */
-    border-radius: 8px; /* Aumentando o tamanho   */
+    border-radius: 8px; /* arredondando   */
     
     text-align: center;
     cursor: pointer;
