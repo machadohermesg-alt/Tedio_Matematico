@@ -22,13 +22,12 @@ e uma consequência foi deixar a página mais lenta. Por isso, o botão resultad
  o espaço Rⁿ⁺¹, com base canônica (e₁, e₂, ..., eₙ₊₁), e o espaço dos polinômios de grau até n, 
  com base (1, x, x², ..., xⁿ), são isomorfos. Por exemplo, o 
   polinômio 1 + x² pode ser escrito como a lista [1, 0, 1], essa ideia simples 
-  foi a base para toda a tradução usada no projeto.
+  foi a base para toda a tradução usada no projeto. Importante citar que atualmente o corpo da função polinomial é dos racionais.
 
  O cálculo do valor da função polinomial percorre essa lista com um contador de 
   grau, começando em zero: resultado = resultado + coeficiente · valor^grau, onde  valor é o x. 
   Em TypeScript, foi criada uma função que traduz o texto digitado 
-  para esse mesmo formato. Por isso a escolha de usar botões em vez de digitação livre: simplifica bastante o parsing. Existem bugs, expressões 
-  como 3·x  e x/2 não funcionam corretamente, a forma correta hoje é digitar 3x direto, 
+  para esse mesmo formato. Por isso a escolha de usar botões em vez de digitação livre: simplifica bastante o parsing. Existem alguns bugs 
   que será corrigido em atualizações futuras. 
 
 ## Stack
@@ -46,7 +45,7 @@ e uma consequência foi deixar a página mais lenta. Por isso, o botão resultad
   Arrumar bugs, organizar melhor código, implementar as outras páginas, e pensar como traduzir funções  trigonométricas, exponenciais, racionais e logarítmicas. Por enquanto penso em 
   utilizar séries de Maclaurin para trigonométricas e exponenciais, centradas em zero, pois estas convergem para todo dominio real e para as duas últimas é necessário definir um domínio específico para cada caso,
   devido à não existência de logaritmo para x negativo nos reais, e, de forma análoga, por exemplo retirar o x = 0 para 1/x, onde está função f é definida 
-  como f: R\❲0❳ → R, onde utilizarei a princípio uma mescla de série de Maclaurin e Laurent.
+  como f: R\❲0❳ → R, onde utilizarei a princípio uma mescla de série de Maclaurin e Laurent. Alterar o corpo racional para o real.
 
 Posteriormente, implementar a parte de álgebra, grafos, etc.
 
