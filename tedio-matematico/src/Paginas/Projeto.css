@@ -14,11 +14,7 @@
   grid-template-columns: repeat(5, 1fr);  /* 4 colunas iguais */
   gap: 8px;   
 }
-@media (max-width: 500px) {
-    .caixa-botao{
-        grid-template-columns: repeat(3, 1fr);  /* 3 colunas em vez de 5, caso a tela seja menor igual a 500px */
-    }
-}
+
 .Caixa-retangular{
     padding: 20px;
     margin: 20px auto;
