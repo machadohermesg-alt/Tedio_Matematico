@@ -43,15 +43,14 @@ function Sobre(){
                                 o espaço Rⁿ⁺¹, com base canônica (e₁, e₂, ..., eₙ₊₁), e o espaço dos polinômios de grau até n, 
                                 com base (1, x, x², ..., xⁿ), são isomorfos. Por exemplo, o 
                             polinômio 1 + x² pode ser escrito como a lista [1, 0, 1], essa ideia simples 
-                            foi a base para toda a tradução usada no projeto.
+                            foi a base para toda a tradução usada no projeto. É importante citar que no modelo atual a função polinomial está no corpo dos Racionais.
                     </p>
                     <p>
                         O cálculo do valor da função polinomial percorre essa lista com um contador de 
                         grau, começando em zero: resultado = resultado + coeficiente · valor^grau, onde  valor é o x. 
                         Em TypeScript, foi criada uma função que traduz o texto digitado 
-                        para esse mesmo formato. Por isso a escolha de usar botões em vez de digitação livre: simplifica bastante o parsing. Ainda existe um bug conhecido, expressões 
-                        como 3·x não funcionam corretamente, a forma correta hoje é digitar 3x direto, 
-                        que será corrigido em atualizações futuras. Mais detalhes técnicos no README do GitHub.
+                        para esse mesmo formato. Por isso a escolha de usar botões em vez de digitação livre: simplifica bastante o parsing. Ainda existem alguns bugs
+                        que serão corrigido em atualizações futuras. Mais detalhes técnicos no README do GitHub.
                     </p>
                </section>
                </CaixaRentagular>
@@ -61,7 +60,7 @@ function Sobre(){
                 Arrumar bugs, organizar melhor código, implementar as outras páginas, e pensar como traduzir funções  trigonométricas, exponenciais, racionais e logarítmicas. Por enquanto penso em 
                 utilizar séries de Maclaurin para trigonométricas e exponenciais, centradas em zero, pois estas convergem para todo dominio real e para as duas últimas é necessário definir um domínio específico para cada caso,
                   devido à não existência de logaritmo para x negativo nos reais, e, de forma análoga, por exemplo retirar o x = 0 para 1/x, onde está função f é definida 
-                como f: R\❲0❳ → R, onde utilizarei a princípio uma mescla de série de Maclaurin e Laurent.
+                como f: R\❲0❳ → R, onde utilizarei a princípio uma mescla de série de Maclaurin e Laurent. Alterar o corpo racional para o real.
             </p>
             <p>
                 Posteriormente, implementar a parte de álgebra, grafos, etc.

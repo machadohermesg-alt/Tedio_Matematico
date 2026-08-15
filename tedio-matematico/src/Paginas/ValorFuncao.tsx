@@ -31,6 +31,9 @@ function ValorFuncao(){
         }  
         const retiraEspaco= valorAtual.trim()
         const ultimoCaractere = retiraEspaco.slice(-1)
+        if(caractere==='x'&&ultimoCaractere==='x'){
+            return
+        }
         const penutimoCaractere =retiraEspaco.slice(-2,-1)
         const caracteresespeciais = ['+','-','·',',',]
         const caracteresespeciais2 = ['/', '^', ' + ', ' - ', ' · ']
@@ -126,14 +129,18 @@ function ValorFuncao(){
         let termos = []
         let dicDados = []
         const termos1 = separarEmTermos(expressao)
+        
         for (let termo of termos1){
+            
             let aux = calculadora(termo)
+            
             termos.push(String(aux))
         }
 
         for(let termo of termos){
             //criando dicionario com os termos, coeficiente e grau
             let dados = dic(termo)
+            
             dicDados.push(dados)
         }
         //console.log(dicDados)
@@ -189,17 +196,50 @@ function ValorFuncao(){
     }
     function calculadora (termo:string){
         let numero =0
-        if(termo.includes('·')){
+        if(termo.includes('·')&&termo.includes('x')){
+        //Correção do bug calculadora aceita agora y·x
+         let termoSemVezes = termo.replace('·','')
+         return(termoSemVezes)
+
+        }else if(termo.includes('·')&&!termo.includes('x')){
             let termoSemVezes = termo.split("·")
+            
             numero = Number(termoSemVezes[0])*Number(termoSemVezes[1])
             return(String(numero))
         }else if(termo.includes('^') && !termo.includes('x') ){
             let termoSemPotencia = termo.split('^')
             numero = Number(termoSemPotencia[0])**Number(termoSemPotencia[1])
             return(String(numero))
+            //formato x/y
+        }else if(termo.includes('/')&&termo.includes('x')&&termo.length==3){
+           
+           let termoSemBarra = termo.split('/')
+           //pegando o coefiente que é do tipo 1/y
+           let coeficente = termoSemBarra[1]
+           //transfromando em decimal
+           let decimal = 1/Number(coeficente)
+           //ficando x,x
+           termoSemBarra[1] =termoSemBarra[0]
+           //recebendo o decimal
+           termoSemBarra[0] = String(decimal)
+           //junstnado
+           let juntando = termoSemBarra.join("")
+            return(juntando)
+
+            //formato (y/z)x
+        }else if ((termo.includes('/')&&termo.includes('x')&&termo.length==4)) {
+            let termoSemBarra = termo.split('/')
+            let juntando = termoSemBarra.join("")
+            console.log(juntando)
+            let decimal = Number(juntando[0])/Number(juntando[1])
+            let cocatenano = String(decimal)+'x'
+            return(cocatenano)
+                
             
+          
         }else if(termo.includes('/')){
             let termoSemBarra = termo.split('/')
+            
             numero = Number(termoSemBarra[0])/Number(termoSemBarra[1])
             return (String(numero))
         }else{
